@@ -1,0 +1,14 @@
+{
+  "name": "router_experiment",
+  "module": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run example/index.html"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
