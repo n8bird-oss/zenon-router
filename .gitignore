@@ -15,7 +15,12 @@ lerna-debug.log*
 .cache
 
 # Testing project folder
+
 example/
+
+# Project Tasks
+
+*.todo
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 
