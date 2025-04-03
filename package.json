@@ -1,10 +1,21 @@
 {
-  "name": "router_experiment",
-  "module": "src/index.js",
+  "name": "routerix",
+  "version": "1.0.0",
+  "description": "A lightweight JavaScript router experiment.",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.js",
   "type": "module",
+  "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n8bird-oss/routerix.git"
+  },
+  "author": "Abdullah O. Mustapha",
+  "license": "MIT",
   "scripts": {
     "dev": "bun run example/index.html",
-    "build": "rollup -c rollup.config.js"
+    "build": "rollup -c rollup.config.js",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/bun": "latest"
