@@ -3,7 +3,8 @@
   "module": "src/index.js",
   "type": "module",
   "scripts": {
-    "dev": "bun run example/index.html"
+    "dev": "bun run example/index.html",
+    "build": "rollup -c rollup.config.js"
   },
   "devDependencies": {
     "@types/bun": "latest"
