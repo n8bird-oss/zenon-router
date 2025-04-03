@@ -5,14 +5,20 @@
   "main": "dist/bundle.js",
   "module": "dist/bundle.js",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/n8bird-oss/routerix.git"
+    "url": "git+https://github.com/n8bird-oss/routerix.git"
   },
   "author": "Abdullah O. Mustapha",
   "license": "MIT",
-  "keywords": ["router", "javascript", "SPA"],
+  "keywords": [
+    "router",
+    "javascript",
+    "SPA"
+  ],
   "scripts": {
     "dev": "bun run example/index.html",
     "build": "rollup -c rollup.config.js",
