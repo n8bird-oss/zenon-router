@@ -12,6 +12,7 @@
   },
   "author": "Abdullah O. Mustapha",
   "license": "MIT",
+  "keywords": ["router", "javascript", "SPA"],
   "scripts": {
     "dev": "bun run example/index.html",
     "build": "rollup -c rollup.config.js",
