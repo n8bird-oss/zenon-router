@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug to help improve Routerix
+about: Report a bug to help improve zenon
 ---
 
 # Bug Description
@@ -27,7 +27,7 @@ about: Report a bug to help improve Routerix
 - OS: [e.g. Windows, macOS, Linux]
 - Browser: [e.g. Chrome, Firefox, Edge]
 - Node.js version: [e.g. 18.0.0]
-- Routerix version: [e.g. 1.0.0]
+- zenon version: [e.g. 1.0.0]
 
 ## Additional Context
 

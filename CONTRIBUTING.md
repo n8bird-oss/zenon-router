@@ -1,6 +1,6 @@
-# Contributing to Routerix
+# Contributing to zenon
 
-Thank you for your interest in contributing to Routerix! 
+Thank you for your interest in contributing to zenon! 
 
 ## How to Contribute
 

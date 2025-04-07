@@ -10,7 +10,7 @@ about: Suggest a new feature or enhancement
 
 ## Why is this Needed?
 
-*Explain why this feature is beneficial and how it improves Routerix.*
+*Explain why this feature is beneficial and how it improves zenon.*
 
 ## Proposed Solution
 

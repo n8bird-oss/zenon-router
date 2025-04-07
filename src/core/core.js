@@ -1,8 +1,4 @@
-/**
- * Routerix - A lightweight JavaScript router.
- * Supports dynamic routing and navigation using the browser history API.
- */
-class Routerix {
+class zenon {
   /**
    * Initializes the router with a set of routes and history mode.
    * @param {Object} options - Router configuration.
@@ -69,4 +65,4 @@ class Routerix {
   }
 }
 
-export default Routerix;
+export default zenon;

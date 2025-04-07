@@ -1,9 +1,9 @@
 {
-  "name": "routerix",
+  "name": "zenon-router",
   "version": "1.0.0",
-  "description": "A lightweight JavaScript router experiment.",
-  "main": "dist/bundle.js",
-  "module": "dist/bundle.js",
+  "description": "A blazing-fast, minimal JavaScript router for modern web apps.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "type": "module",
   "files": [
     "dist"

@@ -1,3 +1,3 @@
-import Routerix from "./core/core.js";
+import zenon from "./core/core.js";
 
-export { Routerix }; 
+export { zenon }; 
