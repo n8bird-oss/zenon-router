@@ -1,10 +1,6 @@
 # Zenon Router
 
-[![Build Status](https://img.shields.io/travis/com/n8bird-oss/zenon-router.svg)](https://travis-ci.com/n8bird-oss/zenon-router)
-[![NPM Version](https://img.shields.io/npm/v/zenon-router.svg)](https://www.npmjs.com/package/zenon-router)
-[![License](https://img.shields.io/github/license/n8bird-oss/zenon-router.svg)](https://opensource.org/licenses/MIT)
-[![NPM Downloads](https://img.shields.io/npm/dw/zenon-router.svg)](https://www.npmjs.com/package/zenon-router)
-[![Contributors](https://img.shields.io/github/contributors/n8bird-oss/zenon-router.svg)](https://github.com/n8bird-oss/zenon-router/graphs/contributors)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 Zenon is a minimalist, high-performance JavaScript router designed for modern web applications. Built for simplicity, it offers dynamic routing capabilities with full integration into the browser’s History API, ensuring smooth and fast navigation. Zenon provides an intuitive API for route management, making it an excellent choice for developers looking to implement custom routing solutions without the overhead of larger frameworks.
 

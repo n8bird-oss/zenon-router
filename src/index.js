@@ -1,3 +1,3 @@
-import zenon from "./core/core.js";
+import zenRouter from "./core/core";
 
-export { zenon }; 
+export { zenRouter };
