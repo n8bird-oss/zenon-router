@@ -1,175 +1,161 @@
-# Zenon Router
+# Zenon Router 🛣️
 
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+Zenon Router is a zero-dependency JavaScript router for SPAs. It uses the browser's history API for clean, reload-free navigation.
 
-Zenon is a minimalist, high-performance JavaScript router designed for modern web applications. Built for simplicity, it offers dynamic routing capabilities with full integration into the browser’s History API, ensuring smooth and fast navigation. Zenon provides an intuitive API for route management, making it an excellent choice for developers looking to implement custom routing solutions without the overhead of larger frameworks.
 
-## Key Features
+## ✨ Features
 
-- **Lightweight & Fast**: Optimized for performance with minimal footprint.
-- **Dynamic Routing**: Add or modify routes at runtime with ease.
-- **History API Integration**: Fully supports browser history, enabling seamless navigation.
-- **No Dependencies**: Pure JavaScript, no external libraries required.
-- **Easy-to-Use API**: A simple, declarative interface for routing configuration and management.
+- 🔁 **Singleton Pattern** – Prevents multiple router instances
+- 🧭 **Named and Path-Based Routing**
+- 🔗 **History API** – Enables clean, navigable URLs
+- 📦 **Lightweight** – No third-party dependencies
+- 🛠️ **Dynamic Route Addition**
+- 🔍 **Automatic Route Resolution** on navigation and `popstate` events
 
-## Installation
+<br>
 
-To integrate Zenon into your project, install it via npm:
+## 📦 Installation
+
+You can install it using npm:
 
 ```bash
 npm install zenon-router
 ```
 
-Alternatively, you can use it via a CDN or directly within your project by importing the module.
+Or if you prefer yarn:
 
-```js
-import { zenon } from 'zenon-router';
+```bash
+yarn add zenon-router
 ```
 
-## Usage
+Or if you prefer bun:
 
-Zenon is easy to get started with. Here's a basic example of how to initialize the router and define routes:
+```bash
+bun add zenon-router
+```
 
-### 1. Initialize the Router
+<br>
 
-Create a new instance of the `zenon` router by providing a configuration object containing your routes.
+## 🔧 How to Use
+
+### Step 1: Import and set up
 
 ```js
-import { zenon } from 'zenon-router';
+import { createRouter } from "zenon-router";
 
-const router = new zenon({
-  history: 'history',  // Optional: future support for different history modes
+const router = createRouter({
+  history: "history", // optional, default is "history"
   routes: [
     {
-      name: 'home',
-      path: '/',
-      component: () => { console.log('Home Route'); }
+      name: "home",
+      path: "/",
+      component: () => {
+        document.body.innerHTML = "<h1>Welcome Home</h1>";
+      },
     },
     {
-      name: 'about',
-      path: '/about',
-      component: () => { console.log('About Route'); }
-    }
-  ]
+      name: "about",
+      path: "/about",
+      component: () => {
+        document.body.innerHTML = "<h1>About Us</h1>";
+      },
+    },
+  ],
 });
 ```
 
-### 2. Navigating Between Routes
-
-To navigate to a different route, use the `push()` method, passing the path of the route to navigate to.
+### Step 2: Navigate to a route
 
 ```js
-router.push('/about'); // Navigates to the about page
+router.push("/about");
 ```
 
-### 3. Dynamically Adding Routes
+The `about` component will run and update your UI.
 
-You can add new routes dynamically using the `addRouter()` method:
+<br>
+
+## 🧩 API Breakdown
+
+### `createRouter(options)`
+
+This sets up the router. It returns a single (singleton) router instance.
+
+**Options:**
+
+- `history` – (optional) for now it just accepts `"history"`
+- `routes` – array of objects like:
+
+```js
+{
+  name: "route-name",
+  path: "/some-path",
+  component: () => {
+    // your UI logic here
+  }
+}
+```
+
+---
+
+### `router.push(path)`
+
+Moves the browser to that path and loads the route component.
+
+---
+
+### `router.addRouter({ name, path, component })`
+
+You can use this if you want to add more routes later after the initial setup.
+
+---
+
+### `router.resolveRoute()`
+
+Finds the current path and runs the matching component. It's called automatically when the page loads or the user presses back/forward.
+
+<br>
+
+## 💡 Example
 
 ```js
 router.addRouter({
-  name: 'contact',
-  path: '/contact',
-  component: () => { console.log('Contact Route'); }
-});
-```
-
-### 4. Handling Browser Navigation
-
-Zenon listens for browser navigation events (e.g., back/forward buttons) and resolves the appropriate route automatically:
-
-```js
-window.addEventListener('popstate', () => {
-  router.resolveRoute();
-});
-```
-
-### 5. Resolving Routes
-
-You can manually trigger the resolution of the current route using the `resolveRoute()` method, which will invoke the corresponding route handler.
-
-```js
-router.resolveRoute();
-```
-
-## API Reference
-
-### `constructor({ history, routes })`
-
-The constructor initializes the router with a configuration object.
-
-- **history** (optional): Specifies the history mode (defaults to `"history"`). Future versions may support different modes (e.g., hash-based routing).
-- **routes**: An array of route objects, each containing:
-  - **name**: A unique identifier for the route.
-  - **path**: The URL path for the route.
-  - **component**: A function executed when the route is matched.
-
-### `addRouter({ name, path, component })`
-
-Dynamically adds a new route to the router.
-
-- **name**: The name of the route (string).
-- **path**: The URL path for the route (string).
-- **component**: A function that gets executed when the route is navigated to.
-
-Throws an error if any of the parameters are invalid.
-
-### `push(path)`
-
-Navigates to a specific route by updating the browser's history and resolving the route.
-
-- **path**: The path to navigate to (string).
-
-### `resolveRoute()`
-
-Resolves the current route based on the browser's path and invokes the corresponding component.
-
-## Example
-
-```js
-const router = new zenon({
-  routes: [
-    {
-      name: 'home',
-      path: '/',
-      component: () => { console.log('Welcome to Home!'); }
-    },
-    {
-      name: 'about',
-      path: '/about',
-      component: () => { console.log('About Us!'); }
-    }
-  ]
+  name: "contact",
+  path: "/contact",
+  component: () => {
+    document.body.innerHTML = "<h1>Contact Us</h1>";
+  },
 });
 
-// Navigate to the home route
-router.push('/');
-
-// Dynamically add a new route
-router.addRouter({
-  name: 'contact',
-  path: '/contact',
-  component: () => { console.log('Contact Us!'); }
-});
-
-// Navigate to the contact route
-router.push('/contact');
+router.push("/contact");
 ```
 
-## License
+<br>
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+## 🧪 Running Locally
 
----
+If you're working on the library itself:
 
-## Contributing
+```bash
+git clone https://github.com/yourusername/zenon-router.git
+cd zenon-router
+npm install
+```
 
-Zenon is open for contributions! Feel free to fork the repository, open issues, and submit pull requests. Whether you’re fixing bugs, improving documentation, or adding new features, all contributions are welcome.
+You can then open an `index.html` file and play with it.
 
----
 
-## Acknowledgements
+## 🧠 Inspiration
+Zenon was built to provide a learning-focused, customizable router core — simple enough to understand, powerful enough to extend.
 
-Zenon was built with simplicity and performance in mind, providing developers with a flexible, efficient solution for routing in single-page applications.
 
----
+
+## 📄 License
+
+MIT — You’re free to use it, modify it, and share it.
+
+
+
+## 🙌 Contribute
+
+Pull requests, suggestions, and issues are welcome!
+Open an issue [here]() or fork the repo and submit a PR.
