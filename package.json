@@ -1,6 +1,6 @@
 {
   "name": "zenon-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A zero-dependency JavaScript router for SPAs using the browser's history API for clean, reload-free navigation.",
   "main": "dist/index.js",
   "module": "dist/index.js",
