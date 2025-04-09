@@ -1,6 +1,6 @@
 let _instance
 
-function zenRouter(options) {
+function createRouter(options) {
   if (_instance) {
     return _instance;
   }
@@ -50,4 +50,4 @@ class zenon {
   }
 }
 
-export default zenRouter;
+export default createRouter;

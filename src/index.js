@@ -1,3 +1,3 @@
-import zenRouter from "./core/core";
+import createRouter from "./core/core";
 
-export { zenRouter };
+export { createRouter };
