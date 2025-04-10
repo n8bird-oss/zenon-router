@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
+  "types": "types/zenon-router.d.ts",
   "files": [
     "dist"
   ],
