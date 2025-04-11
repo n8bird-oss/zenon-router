@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src",
+
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+
+    "baseUrl": "./src",
+    // "paths": {
+    //   "@types": ["types/*"],
+    //   "@core/*": ["core/*"]
+    // }
+  },
+  "include": ["src", "eslint.config.ts"]
+}

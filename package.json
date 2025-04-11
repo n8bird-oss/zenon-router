@@ -3,9 +3,8 @@
   "version": "1.0.1",
   "description": "A zero-dependency JavaScript router for SPAs using the browser's history API for clean, reload-free navigation.",
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "type": "module",
-  "types": "types/zenon-router.d.ts",
+  "types": "index.d.ts",
   "files": [
     "dist"
   ],
@@ -18,17 +17,23 @@
   "keywords": [
     "router",
     "javascript",
-    "SPA"
+    "SPA",
+    "zenon-router",
+    "open source"
   ],
   "scripts": {
-    "dev": "bun run example/index.html",
-    "build": "rollup -c rollup.config.js",
-    "prepublishOnly": "npm run build"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.2",
+    "@vue/compiler-sfc": "^3.5.13",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3",
+    "vue": "^3.5.13"
   }
 }
