@@ -1,6 +1,6 @@
 import { Route, RouterOptions } from "../types";
 
-export class Zenon {
+export class zenon {
   private nameToRoute = new Map<string, Route>();
   private pathToRoute = new Map<string, Route>();
   private historyMode: "history";
@@ -46,7 +46,7 @@ export class Zenon {
     if (route) {
       route.component();
     } else {
-      window.document.body.innerHTML = `<h1><i>No route found for: ${path}</i></h1>`;
+      window.document.body.innerHTML = `<i>No route found for <b>${path}</b></i>`;
       console.error(`No route found for: ${path}`);
     }
   }

@@ -21,6 +21,7 @@ package-lock.json
 # Testing project folder
 
 example/
+example_js/
 
 # Project Tasks
 
