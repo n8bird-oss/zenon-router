@@ -21,9 +21,8 @@ npm install zenon-router
 ### 1. Define your routes
 
 ```ts
-import type { Route } from "zenon-router";
 
-const routes: Route[] = [
+const routes = [
   {
     name: "home",
     path: "/",
