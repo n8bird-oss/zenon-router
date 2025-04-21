@@ -7,7 +7,7 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
-    "declarationDir": "dist/types",
+    "declarationDir": "dist",
 
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,5 +15,5 @@
     "esModuleInterop": true,
 
   },
-  "include": ["src", "eslint.config.ts"]
+  "include": ["src"]
 }

@@ -53,6 +53,14 @@ export class ZenonRouter {
     this.resolveRoute();
   }
 
+  public getRouteByPath(path: string): Route | null {
+    return this.pathToRoute.get(path) || null;
+  }
+
+  public getRouteByName(name: string): Route | null {
+    return this.nameToRoute.get(name) || null;
+  }
+
   public resolveRoute(): void {
     if (!isWindowAvailable) return;
 

@@ -1,7 +1,7 @@
-import { useCurrentRoute } from "./useCurrentRoute";
+import { useRoute } from "./useRoute";
 
 export function useRouteParams(): Record<string, string> {
-  const route = useCurrentRoute();
+  const route = useRoute();
   const pathSegments = window.location.pathname.split("/");
   const params: Record<string, string> = {};
 
