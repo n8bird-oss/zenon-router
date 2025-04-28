@@ -1,14 +1,14 @@
 # ⚡ Zenon Router
 
-**Zenon Router** is a lightweight, TypeScript-first client-side router designed for single-page applications (SPAs) built with **vanilla JavaScript or TypeScript**. It uses the HTML5 History API to provide clean, modern routing without external dependencies.
+**Zenon Router** is designed to be simple and fast, making it ideal for small-scale SPAs. It provides full control over routing with minimal overhead. It’s perfect for developers who want a router that just works and works efficiently..
 
 ## ✅ Features
 
 - ⚡ **Blazing fast & minimal** – Zero dependencies
-- ✅ **Type-safe** – Written in TypeScript with support for JavaScript projects
+- ✅ **Type-safe** – Written in TypeScript with support for JavaScript
 - 🧭 **History API-based routing** – `pushState` & `popstate` powered navigation
-- 🔌 **Framework-agnostic** – Works with plain JS or TS
 - 🔄 **Dynamic route registration** – Add routes at runtime
+- 🔧 **Programmatic navigation** – `push`, `replace`, and `resolveRoute` methods
 
 ## 📦 Installation
 
@@ -21,21 +21,16 @@ npm install zenon-router
 ### 1. Define your routes
 
 ```ts
-
-const routes = [
+const routes: Route[] = [
   {
     name: "home",
     path: "/",
-    component: () => {
-      document.body.innerHTML = "<h1>Home Page</h1>";
-    },
+    component: () => import("./pages/Home.js")
   },
   {
     name: "about",
     path: "/about",
-    component: () => {
-      document.body.innerHTML = "<h1>About Page</h1>";
-    },
+    component: () => import("./pages/About.js")
   },
 ];
 ```
@@ -43,29 +38,40 @@ const routes = [
 ### 2. Initialize the router
 
 ```ts
-import { createRouter } from "zenon-router";
+import { createRouter, Route } from "zenon-router";
 
-const router = createRouter({ routes });
+const router = createRouter({ 
+  history: "history", 
+  routes, 
+});
 
-router.resolveRoute(); // Call once on page load
+router.resolveRoute(); // Call once on page load to resolve current route
 ```
 
 ### 3. Navigate programmatically
 
 ```ts
 router.push("/about"); // Changes URL and loads the About page
+router.replace("/home"); // Replaces the current history state with the Home page
+```
+
+### 4. Access a route by path or name
+
+```ts
+const homeRoute = router.getRouteByPath("/"); // Get route by path
+const aboutRoute = router.getRouteByName("about"); // Get route by name
 ```
 
 ## 📘 API Reference
 
-### `createRouter(options: RouterOptions): zenon`
+### `createRouter(options: RouterOptions): ZenonRouter`
 
 Creates and returns an instance of the router.
 
 ```ts
 interface RouterOptions {
-  history?: "history"; // default
-  routes?: Route[];
+  history?: "hash" | "history"; // Default is "history"
+  routes: Route[];
 }
 ```
 
@@ -73,9 +79,12 @@ interface RouterOptions {
 
 ```ts
 interface Route {
-  name?: string;
+  name: string;
   path: string;
-  component: () => void;
+  component: () => Promise<{ default: () => void | string }>;
+  meta?: Record<string, any>;
+  _segments?: string[];
+  _paramKeys?: string[];
 }
 ```
 
@@ -83,27 +92,27 @@ interface Route {
 
 | Method                    | Description                                           |
 |---------------------------|-------------------------------------------------------|
-| `push(path: string)`      | Navigate to a path programmatically                   |
-| `addRouter(route: Route)` | Dynamically register a new route                     |
-| `resolveRoute()`          | Resolves the current URL and triggers the component   |
-
-## 🧠 Philosophy
-
-Zenon Router is built for simplicity. Whether you're prototyping or building a small production SPA, it gives you full control without unnecessary overhead. Perfect for developers who want a routing system that just works, and works fast.
+| `push(path: string)`       | Navigate to a path programmatically                   |
+| `replace(path: string)`    | Navigate to a path programmatically, replacing the current state |
+| `addRoute(route: Route)`   | Dynamically register a new route                     |
+| `getRouteByPath(path: string)` | Retrieve a route by its path                        |
+| `getRouteByName(name: string)` | Retrieve a route by its name                        |
+| `resolveRoute()`           | Resolves the current URL and triggers the component   |
 
 ## 🚧 Roadmap
 
-These features are on the way:
+Upcoming features include:
 
 - 🔀 Hash-based routing
 - 🔒 Navigation guards
 - 🧭 Named route navigation
-- 🔁 Middleware or lifecycle hooks
 
 ## 🤝 Contributing
 
-We welcome contributions! If you'd like to contribute, please read the [CONTRIBUTE.md](./CONTRIBUTING.md) file for guidelines on how to get started.
+We welcome contributions! If you'd like to contribute, please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines.
 
 ## 📄 License
 
 This project is licensed under the [MIT License](./LICENSE).
+
+---
