@@ -1,13 +1,14 @@
-import { zenon } from "./core/index";
-import { RouterOptions } from "./types/index";
+export * from './core';
+export * from './types';
+export * from './hooks';
 
-let _instance: zenon | null = null;
+import { ZenonRouter } from "./core";
+import { RouterOptions } from "./types";
 
-export function createRouter(options: RouterOptions): zenon {
-  if (_instance) {
-    return _instance;
-  }
+let _instance: ZenonRouter | null = null;
 
-  _instance = new zenon(options);
+export function createRouter(options: RouterOptions): ZenonRouter {
+  if (_instance) return _instance;
+  _instance = new ZenonRouter(options);
   return _instance;
 }

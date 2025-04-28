@@ -7,7 +7,7 @@
 - ⚡ **Blazing fast & minimal** – Zero dependencies
 - ✅ **Type-safe** – Written in TypeScript with support for JavaScript projects
 - 🧭 **History API-based routing** – `pushState` & `popstate` powered navigation
-- 🔌 **Framework-agnostic** – Works with plain JS or TS (not tied to any UI library)
+- 🔌 **Framework-agnostic** – Works with plain JS or TS
 - 🔄 **Dynamic route registration** – Add routes at runtime
 
 ## 📦 Installation
