@@ -14,7 +14,6 @@ export class ZenonRouter {
     routes.forEach((route) => this.addRoute(route));
     if (isWindowAvailable) {
       window.addEventListener("popstate", this.resolveRoute.bind(this));
-      this.resolveRoute();
     }
   }
 
@@ -38,8 +37,6 @@ export class ZenonRouter {
     } else {
       window.location.hash = path;
     }
-
-    this.resolveRoute();
   }
 
   public replace(path: string): void {
@@ -50,8 +47,6 @@ export class ZenonRouter {
     } else {
       window.location.hash = path;
     }
-
-    this.resolveRoute();
   }
 
   public getRouteByPath(path: string): Route | null {
