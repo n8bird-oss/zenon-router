@@ -1,14 +1,12 @@
 export interface Route {
   name: string;
   path: string;
-  component: () => void;
+  component: () => Promise<{ default: () => void | string }>;
   meta?: Record<string, any>;
 
-  // Internal use
   _segments?: string[];
   _paramKeys?: string[];
 }
-
 export interface RouterOptions {
   history?: "hash" | "history";
   routes: Route[];
