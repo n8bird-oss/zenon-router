@@ -111,8 +111,17 @@ Upcoming features include:
 
 We welcome contributions! If you'd like to contribute, please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines.
 
+
+## Star History
+
+<a href="https://www.star-history.com/#n8bird-oss/zenon-router&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=n8bird-oss/zenon-router&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=n8bird-oss/zenon-router&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=n8bird-oss/zenon-router&type=Date" />
+ </picture>
+</a>
+
 ## 📄 License
 
 This project is licensed under the [MIT License](./LICENSE).
-
----
